@@ -5,7 +5,7 @@ import './App.css'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Login from './page/login'
 import Signup from './page/signup'
-import Home from './page/home'
+import Home from './page/Home'
 
 function App() {
   const [count, setCount] = useState(0)
