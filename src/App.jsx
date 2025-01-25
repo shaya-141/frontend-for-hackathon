@@ -6,9 +6,12 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Login from './page/login'
 import Signup from './page/signup'
 import Home from './page/home'
+import Slip from './page/Slip'
+import DepartmentManger from './page/DepartmentManager'
+import AdminPanel from './page/AdminPanel'
 
 function App() {
-  const [count, setCount] = useState(0)
+  // const [count, setCount] = useState(0)
 
   return (
     <>
@@ -17,6 +20,9 @@ function App() {
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/signup' element={<Signup></Signup>}></Route>
+        <Route path='adminpanel' element={<AdminPanel></AdminPanel>}></Route>
+        <Route path='slip/:token' element={<Slip></Slip>}></Route>
+        <Route path='/department-manger' element={<DepartmentManger></DepartmentManger>}></Route>
       </Routes>
      
      </BrowserRouter>

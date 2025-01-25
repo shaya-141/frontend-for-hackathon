@@ -1,8 +1,15 @@
 import React from 'react'
+import RegisterForm from '../components/registerform'
 
 function Signup() {
   return (
-    <h1 className='text-[20px] text-fuchsia-400'>login</h1>
+
+    <div className='w-full h-screen flex items-center justify-center '>
+        <RegisterForm></RegisterForm>
+    </div>
+
+
+
   )
 }
 
