@@ -9,6 +9,31 @@ function DepartmentManager() {
   const handleTokenChange = (e) => {
     setToken(e.target.value);
   };
+  const handleUpdate = async()=>{
+      try {
+          const response = await axiosInstance.put(`/auth/updatetoken?token=${token}`)
+          console.log("response>>>",response);
+          alert("updated successfully")
+          fetchTokenDetails()
+          
+          
+      } catch (err) {
+        console.log("error",err);
+        
+      }
+  }
+  const handleReject = async()=>{
+      try {
+          const response = await axiosInstance.delete(`/auth/deletetoken?token=${token}`)
+          console.log("response>>>",response);
+          alert("rejected successfully")
+          fetchTokenDetails()
+          
+      } catch (err) {
+        console.log("error",err);
+        
+      }
+  }
   
 
   const fetchTokenDetails = async () => {
@@ -84,11 +109,14 @@ function DepartmentManager() {
 
         <div className='flex gap-4'>
           <button
+          onClick={handleUpdate}
             className='w-[140px] py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition duration-300'
           >
+            
             Accept
           </button>
           <button
+          onClick={handleReject}
             className='w-[140px] py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition duration-300'
           >
             Reject
@@ -96,11 +124,11 @@ function DepartmentManager() {
         </div>
       </div>
 
-      {error && (
+      {/* {error && (
         <div className='mt-4 text-center text-red-600'>
           <p>{error}</p>
         </div>
-      )}
+      )} */}
     </div>
   );
 }

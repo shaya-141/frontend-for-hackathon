@@ -18,6 +18,11 @@ function Home() {
           </div>
         </div>
       </div>
+
+      <div className='w-full bg-blue-100 flex items-center justify-center rounded-xl h-[400px] mt-2'>
+            <h1 className='text-[22px] font-semibold text-black'>Saylani Beneficer</h1>
+      </div>
+
     </div>
   );
 }

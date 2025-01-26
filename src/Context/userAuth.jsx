@@ -2,34 +2,34 @@ import { createContext, useState, useContext, useEffect } from "react";
 import Cookies from "js-cookie";
 import axiosInstance from "../../axiosInstance";
 
-// Create the UserContext
 const UserContext = createContext();
 
-// Create the provider component
 const UserContextProvider = ({ children }) => {
-  const [loginUser, setLoginUser] = useState(null); // State to hold user data
-  const [islogin, setislogin] = useState(false); // State to hold user data
-
-  const [token, setToken] = useState(null); // Token state
-
-  // Get the token from cookies when the component mounts
+  const [loginUser, setLoginUser] = useState(null);
+  const [islogin, setislogin] = useState(false);
+  const [token, setToken] = useState(null);
+  const [email, setemail] = useState(null);
+  
   useEffect(() => {
     const getToken = Cookies.get('token');
-    if (token) {
-        setislogin(true)
+    const getemail = Cookies.get('email');
+    if (getToken) {
+      setislogin(true);
     }
-    setToken(getToken); // Set the token state
+    setToken(getToken);
+    setemail(getemail)
+    console.log(getToken);
+    
   }, []);
 
   useEffect(() => {
-    // Only fetch user data if token exists
     if (token) {
       const fetchData = async () => {
         try {
-          const response = await axiosInstance.get(`/user/detail`, {
-            headers: { Authorization: `Bearer ${token}` }
-          });
-          setLoginUser(response.data.data); // Set user data if the request is successful
+          const response = await axiosInstance.get(`/user/detail?email=${email}`);
+          console.log("response>>>",response);
+          
+          setLoginUser(response.data.data);
         } catch (error) {
           console.error('Error fetching user data:', error.message);
         }
@@ -37,7 +37,7 @@ const UserContextProvider = ({ children }) => {
 
       fetchData();
     }
-  }, [token]); // This effect will run again if the token changes
+  }, [token]);
 
   return (
     <UserContext.Provider value={{ loginUser, setLoginUser, token }}>
@@ -46,7 +46,6 @@ const UserContextProvider = ({ children }) => {
   );
 };
 
-// Create a custom hook to use the UserContext
 const useUserContext = () => {
   const context = useContext(UserContext);
   if (!context) {
