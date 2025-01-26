@@ -51,7 +51,10 @@ function RegisterForm() {
         try {
             const response = await axiosInstance.post('/auth/register', formData);
             console.log('Response:', response.data);
-            Navigate(`/slip/:${response.data.data.token}`)
+
+            console.log("token",response?.data?.data.newUser?.token);
+            
+            Navigate(`/slip/${response?.data?.data.newUser?.token}`)
         } catch (error) {
             console.error('Error:', error);
             
