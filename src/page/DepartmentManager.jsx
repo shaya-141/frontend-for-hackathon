@@ -57,7 +57,7 @@ function DepartmentManager() {
         </button>
       </div>
 
-      <div className='w-[700px] mx-auto mt-5 p-7 bg-white shadow-lg rounded-lg'>
+      <div className='w-[700px] mx-auto mt-10 p-7 bg-white shadow-lg rounded-lg'>
 
         <div className='mb-6'>
           <div className='text-[18px] font-medium flex items-center mb-3'>
