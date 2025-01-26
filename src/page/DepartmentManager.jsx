@@ -27,6 +27,8 @@ function DepartmentManager() {
           const response = await axiosInstance.delete(`/auth/deletetoken?token=${token}`)
           console.log("response>>>",response);
           alert("rejected successfully")
+          setTokenDetails(null)
+          setToken("")
           fetchTokenDetails()
           
       } catch (err) {
