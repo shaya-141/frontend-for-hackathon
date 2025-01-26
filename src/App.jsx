@@ -11,7 +11,7 @@ import DepartmentManger from './page/DepartmentManager'
 import AdminPanel from './page/AdminPanel'
 
 function App() {
-  // const [count, setCount] = useState(0)
+  
 
   return (
     <>
