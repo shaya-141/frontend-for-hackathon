@@ -1,7 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useUserContext } from '../Context/userAuth';
 
 function Home() {
+  const {loginUser,token} = useUserContext()
+  console.log("isloggedin",loginUser);
+  
   return (
     <div className='w-full h-screen'>
       <div className='bg-blue-500 p-4 rounded'>

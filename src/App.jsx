@@ -9,12 +9,15 @@ import Home from './page/Home'
 import Slip from './page/Slip'
 import DepartmentManger from './page/DepartmentManager'
 import AdminPanel from './page/AdminPanel'
+import { UserContextProvider } from './Context/userAuth'
 
 function App() {
   
 
   return (
     <>
+    <UserContextProvider>
+
      <BrowserRouter>
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
@@ -26,6 +29,7 @@ function App() {
       </Routes>
      
      </BrowserRouter>
+    </UserContextProvider>
     </>
   )
 }
