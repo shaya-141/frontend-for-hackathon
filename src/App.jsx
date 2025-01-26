@@ -5,7 +5,7 @@ import './App.css'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Login from './page/login'
 import Signup from './page/signup'
-import Home from './page/Home'
+// import Home from './page/Home'
 import Slip from './page/Slip'
 import DepartmentManger from './page/DepartmentManager'
 import AdminPanel from './page/AdminPanel'
@@ -17,7 +17,7 @@ function App() {
     <>
      <BrowserRouter>
       <Routes>
-        <Route path='/' element={<Home></Home>}></Route>
+        {/* <Route path='/' element={<Home></Home>}></Route> */}
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/signup' element={<Signup></Signup>}></Route>
         <Route path='adminpanel' element={<AdminPanel></AdminPanel>}></Route>
