@@ -25,7 +25,7 @@ function App() {
         <Route path='/signup' element={<Signup></Signup>}></Route>
         <Route path='adminpanel' element={<AdminPanel></AdminPanel>}></Route>
         <Route path='slip/:token' element={<Slip></Slip>}></Route>
-        <Route path='/department-manger' element={<DepartmentManger></DepartmentManger>}></Route>
+        <Route path='/department-manager' element={<DepartmentManger></DepartmentManger>}></Route>
       </Routes>
      
      </BrowserRouter>

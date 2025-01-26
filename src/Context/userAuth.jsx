@@ -26,7 +26,7 @@ const UserContextProvider = ({ children }) => {
     if (token) {
       const fetchData = async () => {
         try {
-          const response = await axiosInstance.get(`/user/detail?email=${email}`);
+          const response = await axiosInstance.get(`/auth/userDetail?email=${email}`);
           console.log("response>>>",response);
           
           setLoginUser(response.data.data);
